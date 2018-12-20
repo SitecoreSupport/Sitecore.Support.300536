@@ -8,6 +8,11 @@
   {
     protected virtual void EnterContext(Rendering rendering, RenderRenderingArgs args)
     {
+      if (string.IsNullOrEmpty(rendering.DataSource))
+      {
+        rendering.DataSource = args.Rendering.Item.ID.ToString();
+      }
+
       IDisposable item = RenderingContext.EnterContext(rendering);
       args.Disposables.Add(item);
     }
