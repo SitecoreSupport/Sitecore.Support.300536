@@ -1,6 +1,7 @@
-﻿namespace Sitecore.Mvc.Pipelines.Response.RenderRendering
+﻿namespace Sitecore.Support.Mvc.Pipelines.Response.RenderRendering
 {
   using Sitecore.Diagnostics;
+  using Sitecore.Mvc.Pipelines.Response.RenderRendering;
   using Sitecore.Mvc.Presentation;
   using System;
 
