@@ -15,23 +15,20 @@
 
     public override void Process(RenderRenderingArgs args)
     {
-      
       Assert.ArgumentNotNull(args, "args");
       if (!args.Rendered)
       {
-
-        if(args.Rendering.Renderer is ItemRenderer)
-        { 
-        foreach (var r in ((Sitecore.Mvc.Presentation.ItemRenderer)args.Rendering.Renderer).Renderings)
+        if (args.Rendering.Renderer is ItemRenderer)
         {
-          if (string.IsNullOrEmpty(r.DataSource))
+          foreach (var r in ((Sitecore.Mvc.Presentation.ItemRenderer)args.Rendering.Renderer).Renderings)
           {
-            r.DataSource = args.Rendering.Item.ID.ToString();
+            if (string.IsNullOrEmpty(r.DataSource))
+            {
+              r.DataSource = args.Rendering.Item.ID.ToString();
+            }
           }
         }
-        }
         this.EnterContext(args.Rendering, args);
-
       }
     }
   }
